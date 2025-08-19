@@ -1,0 +1,19 @@
+<div class="login-container">
+  <h2>Login - BarberHQ</h2>
+  <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="tenant">Nome da Barbearia</label>
+      <input type="text" id="tenant" name="tenant" [(ngModel)]="tenantId" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" [(ngModel)]="credentials.email" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Senha</label>
+      <input type="password" id="password" name="password" [(ngModel)]="credentials.password" required>
+    </div>
+    <button type="submit" [disabled]="!loginForm.form.valid">Entrar</button>
+  </form>
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+</div>
